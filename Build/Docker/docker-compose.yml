@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  lampac:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9118:9118"
+    volumes:
+      - ./data:/home  # Опционально: для сохранения данных
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production  # Опционально: настройка окружения
+    restart: unless-stopped
